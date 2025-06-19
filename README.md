@@ -113,7 +113,7 @@ Fitur numerik seperti `Hours Studied`, `Previous Scores`, `Sleep Hours`, dan `Sa
 SVM adalah algoritma klasifikasi yang mencari hyperplane terbaik untuk memisahkan data ke dalam kelas-kelas yang berbeda. Pada regresi, SVM dapat digunakan untuk memprediksi nilai kontinu dengan mengoptimalkan margin kesalahan.
 
 ```
-svm = SVR(kernel='rbf')
+svm = SVR(kernel='rbf', C=1.0, epsilon=0.1)
 svm.fit(X_train, y_train)
 
 models.loc['train_mse', 'SVM'] = mean_squared_error(y_true=y_train, y_pred=svm.predict(X_train))
