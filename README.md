@@ -169,6 +169,12 @@ models.loc['train_mse', 'KNN'] = mean_squared_error(y_true=y_train, y_pred=knn.p
 **Parameter**:
 - n_neighbors: 20
 
+| Model             | Kelebihan  | Kekurangan   |
+|-------------------|------------|------------|
+| KNN              | Sangat sederhana dan mudah dipahami.   | Sensitif terhadap data outlier.   |
+| KNN     | Tidak memerlukan asumsi tentang distribusi data.    | Performa buruk pada dataset yang sangat besar.   |
+
+
 **Kelebihan**:
 - Sangat sederhana dan mudah dipahami.
 - Tidak memerlukan asumsi tentang distribusi data.
