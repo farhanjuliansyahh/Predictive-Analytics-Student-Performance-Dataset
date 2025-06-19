@@ -9,7 +9,7 @@ Beberapa penelitian terkait yang mendasari pemilihan variabel dalam project ini 
 
 ## Business Understanding
 ### Problem Statements
-1. **Bagaimana kita dapat memprediksi kinerja akademik siswa (`Performance Index`) berdasarkan fitur-fitur yang tersedia?**
+1. **Bagaimana kita dapat memprediksi kinerja akademik siswa `Performance Index` berdasarkan fitur-fitur yang tersedia?**
 2. **Bagaimana kita dapat meningkatkan akurasi prediksi kinerja siswa menggunakan beberapa algoritma machine learning?**
 
 ### Goals
@@ -18,7 +18,7 @@ Beberapa penelitian terkait yang mendasari pemilihan variabel dalam project ini 
   
 ### Solution statements
 Untuk mencapai tujuan di atas, solusi yang diajukan adalah:
-1. **Menggunakan beberapa algoritma machine learning (SVM, Random Forest, KNN) untuk membandingkan kinerjanya dalam memprediksi `Performance Index`.**
+1. **Menggunakan beberapa algoritma machine learning (`SVM`, `Random Forest`, `KNN`) untuk membandingkan kinerjanya dalam memprediksi `Performance Index`.**
 2. **Metrik evaluasi menggunakan Mean Squared Error (MSE), selanjutnya memilih model yang paling bagus berdasarkan nilai metrik tersebut.**
 
 ## Data Understanding
