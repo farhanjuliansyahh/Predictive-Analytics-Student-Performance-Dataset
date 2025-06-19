@@ -1,4 +1,4 @@
-# Laporan project Machine Learning Terapan 1: Predictive-Analytics-Student-Performance-Dataset - Ahmad Farhan Juliansyah
+# Laporan project Machine Learning Terapan 1: Predictive-Analytics-Student-Performance-Dataset | Ahmad Farhan Juliansyah
 
 ## Domain project
 project ini berfokus pada prediksi `Performance Index` siswa menggunakan data yang mencakup waktu belajar, skor sebelumnya, kegiatan ekstrakurikuler, jam tidur, dan latihan soal. Ini bertujuan untuk memprediksi `Performance Index` siswa berdasarkan beberapa faktor yang dianggap mempengaruhi kinerja akademik, seperti jumlah jam belajar, skor sebelumnya, jam tidur, kegiatan ekstrakurikuler, dan jumlah soal yang dipraktikkan. project ini dapat membantu untuk mengembangkan model prediksi yang dapat membantu sekolah atau lembaga pendidikan dalam meramalkan kinerja akademik siswa dan merencanakan intervensi yang tepat. 
