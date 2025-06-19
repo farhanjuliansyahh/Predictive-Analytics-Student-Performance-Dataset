@@ -1,8 +1,8 @@
-# Laporan Proyek Machine Learning Terapan 1: Predictive-Analytics-Student-Performance-Dataset - Ahmad Farhan Juliansyah
+# Laporan project Machine Learning Terapan 1: Predictive-Analytics-Student-Performance-Dataset - Ahmad Farhan Juliansyah
 
-## Domain Proyek
-Proyek ini berfokus pada prediksi `Performance Index` siswa menggunakan data yang mencakup waktu belajar, skor sebelumnya, kegiatan ekstrakurikuler, jam tidur, dan latihan soal. Ini bertujuan untuk memprediksi `Performance Index` siswa berdasarkan beberapa faktor yang dianggap mempengaruhi kinerja akademik, seperti jumlah jam belajar, skor sebelumnya, jam tidur, kegiatan ekstrakurikuler, dan jumlah soal yang dipraktikkan. Proyek ini dapat membantu untuk mengembangkan model prediksi yang dapat membantu sekolah atau lembaga pendidikan dalam meramalkan kinerja akademik siswa dan merencanakan intervensi yang tepat. 
-Beberapa penelitian terkait yang mendasari pemilihan variabel dalam proyek ini adalah:
+## Domain project
+project ini berfokus pada prediksi `Performance Index` siswa menggunakan data yang mencakup waktu belajar, skor sebelumnya, kegiatan ekstrakurikuler, jam tidur, dan latihan soal. Ini bertujuan untuk memprediksi `Performance Index` siswa berdasarkan beberapa faktor yang dianggap mempengaruhi kinerja akademik, seperti jumlah jam belajar, skor sebelumnya, jam tidur, kegiatan ekstrakurikuler, dan jumlah soal yang dipraktikkan. project ini dapat membantu untuk mengembangkan model prediksi yang dapat membantu sekolah atau lembaga pendidikan dalam meramalkan kinerja akademik siswa dan merencanakan intervensi yang tepat. 
+Beberapa penelitian terkait yang mendasari pemilihan variabel dalam project ini adalah:
 - [Factors affecting high school students’ academic performance: a case study in Vietnam] https://www.researchgate.net/publication/392576622_Factors_affecting_high_school_students%27_academic_performance_a_case_study_in_Vietnam
 - [Sleep quality, duration, and consistency are associated with better academic performance in college students] https://www.nature.com/articles/s41539-019-0055-z?utm_source=chatgpt.com
 - [Determining factors that affect student performance using various machine learning methods] https://www.sciencedirect.com/science/article/pii/S1877050922022529
@@ -23,8 +23,8 @@ Untuk mencapai tujuan di atas, solusi yang diajukan adalah:
 
 ## Data Understanding
 ### Kondisi dataset:
-1. Dataset yang digunakan dalam proyek ini adalah **Student Performance Dataset** yang berisi 10.000 entri dengan 6 fitur yang mencakup data numerik dan kategorikal.
-2. Dataset ini tersedia di Kaggle dengan link: [dataset](https://www.kaggle.com/datasets/nikhil7280/student-performance-multiple-linear-regression)
+1. Dataset yang digunakan dalam project ini adalah **Student Performance Dataset** yang berisi 10.000 entri dengan 6 fitur yang mencakup data numerik dan kategorikal.
+2. Dataset ini tersedia di Kaggle dengan link: [Student-Performance-Dataset](https://www.kaggle.com/datasets/nikhil7280/student-performance-multiple-linear-regression)
 3. Dataset tidak ada nilai null atau missing value.
 4. Dataset terdapat nilai duplikasi sebanyak 127 baris dan penanganan selanjutkan akan menghapus 127 baris yang terduplikasi untuk menjaga keakuratan dataset. Jumlah baris dataset menjadi 9.873.
 5. Variabel target dalam dataset ini adalah `Performance Index`.
@@ -72,6 +72,12 @@ df_cleaned = df.drop_duplicates()
 
 ### Outliers
 Pada tahap ini dicek menggunakan boxplot apakah data pada kolom Hours Studied, Previous Scores, Sleep Hours, Sample Question Papers Practiced, dan Performance Index ada outlier atau semua nilai berada dalam rentang yang wajar
+```
+plt.figure(figsize=(12, 6))
+sns.boxplot(data=df_cleaned[['Hours Studied', 'Previous Scores', 'Sleep Hours', 'Sample Question Papers Practiced','Performance Index']])
+plt.title('Boxplot untuk Mendeteksi Outliers')
+plt.show()
+```
 
 ### Missing Value
 Dataset dicek apakah ada missing values menggunakan fungsi, dan jika ada bisa diatasi dengan mengisi atau menghapusnya.
@@ -79,8 +85,20 @@ Dataset dicek apakah ada missing values menggunakan fungsi, dan jika ada bisa di
 df_cleaned.isna().sum()
 ```
 
-### Encoding Fitur Kategori
-Kolom `Extracurricular Activities` di-encode menggunakan Label Encoding untuk mengubah nilai kategorikal menjadi numerik.
+### Univariate Analysis
+Univariate Analysis adalah analisis yang melibatkan satu variabel untuk memahami distribusinya. Pada tahap ini, data untuk setiap fitur numerik dianalisis dengan menggunakan histogram dan KDE (Kernel Density Estimation) untuk melihat distribusi dan bentuk data. Untuk fitur kategorikal, digunakan countplot untuk melihat frekuensi kemunculan setiap kategori. Tujuan dari univariate analysis adalah untuk:
+- Mengetahui apakah data terdistribusi normal atau memiliki pola tertentu.
+- Menemukan potensi outliers yang dapat mempengaruhi hasil model.
+- Memahami sebaran nilai-nilai dalam setiap fitur untuk mempersiapkan data yang lebih baik.
+
+### Multivariate Analysis
+Multivariate Analysis digunakan untuk menganalisis hubungan antara dua atau lebih variabel dalam dataset. Pada tahap ini, dilakukan analisis korelasi antara fitur numerik menggunakan heatmap korelasi untuk melihat hubungan antar variabel. Selain itu, hubungan antara variabel numerik dan kategorikal juga dianalisis menggunakan boxplot untuk mengeksplorasi bagaimana distribusi nilai numerik dipengaruhi oleh kategori tertentu. Tujuan dari multivariate analysis adalah untuk:
+- Mengidentifikasi hubungan yang signifikan antara fitur-fitur yang dapat digunakan dalam model prediksi.
+- Memahami apakah ada multikolinearitas (hubungan yang sangat tinggi) antara fitur-fitur numerik yang dapat mempengaruhi hasil model.
+- Membantu dalam memilih fitur yang paling relevan untuk model.
+
+### Encoding Fitur Kategorikal
+Fitur `Extracurricular Activities` di-encode menggunakan Label Encoding untuk mengubah nilai kategorikal menjadi numerik.
 
 ### Train Test Split
 Dataset dibagi menjadi 80% data latih dan 20% data uji menggunakan fungsi `train_test_split` dari `sklearn`, untuk memastikan bahwa model dapat dievaluasi dengan data yang belum pernah dilihat sebelumnya.
@@ -92,6 +110,14 @@ Fitur numerik seperti `Hours Studied`, `Previous Scores`, `Sleep Hours`, dan `Sa
 ## Modeling
 
 ### SVM
+SVM adalah algoritma klasifikasi yang mencari hyperplane terbaik untuk memisahkan data ke dalam kelas-kelas yang berbeda. Pada regresi, SVM dapat digunakan untuk memprediksi nilai kontinu dengan mengoptimalkan margin kesalahan.
+
+```
+svm = SVR(kernel='rbf')
+svm.fit(X_train, y_train)
+
+models.loc['train_mse', 'SVM'] = mean_squared_error(y_true=y_train, y_pred=svm.predict(X_train))
+```
 
 **Parameter** :
 - Kernel: 'rbf'
@@ -107,6 +133,14 @@ Fitur numerik seperti `Hours Studied`, `Previous Scores`, `Sleep Hours`, dan `Sa
 - Dapat lambat pada dataset yang besar.
 
 ### Random Forest Regressor
+Random Forest adalah algoritma ensemble yang membangun sejumlah pohon keputusan dan menggabungkan hasilnya untuk meningkatkan akurasi prediksi.
+
+```
+RF = RandomForestRegressor(n_estimators=50, max_depth=16, random_state=55, n_jobs=-1)
+RF.fit(X_train, y_train)
+
+models.loc['train_mse', 'RandomForest'] = mean_squared_error(y_true=y_train, y_pred=RF.predict(X_train))
+```
 
 **Parameter**:
 - n_estimators: 50
@@ -123,6 +157,14 @@ Fitur numerik seperti `Hours Studied`, `Previous Scores`, `Sleep Hours`, dan `Sa
 - Rentan terhadap overfitting jika tidak diatur dengan baik.
 
 ### K-Nearest Neighbors
+KNN adalah algoritma yang mengklasifikasikan data berdasarkan kedekatannya dengan data lainnya. Pada regresi, KNN memprediksi nilai target berdasarkan rata-rata nilai target dari tetangga terdekat.
+
+```
+knn = KNeighborsRegressor(n_neighbors=20)
+knn.fit(X_train, y_train)
+
+models.loc['train_mse', 'KNN'] = mean_squared_error(y_true=y_train, y_pred=knn.predict(X_train))
+```
 
 **Parameter**:
 - n_neighbors: 20
@@ -143,6 +185,30 @@ Dari tiga model yang dievaluasi, **Random Forest** menunjukkan hasil terbaik den
 - **Mean Squared Error (MSE)** digunakan untuk mengukur kesalahan prediksi dari model yang dibangun.
 
 **Pembahasan Hasil**
-Model **Random Forest** menunjukkan hasil terbaik dengan MSE yang rendah baik pada data pelatihan maupun pengujian, sehingga dipilih sebagai model terbaik untuk prediksi `Performance Index` siswa. Meskipun **KNN** memberikan hasil yang cukup baik, namun **Random Forest** lebih unggul dalam hal keakuratan.
+| Model             | Train MSE  | Test MSE   |
+|-------------------|------------|------------|
+| SVM               | 0.005089   | 0.005741   |
+| Random Forest     | 0.00097    | 0.006457   |
+| KNN               | 0.00752    | 0.008731   |
 
-Kesimpulannya, **Random Forest** adalah model yang paling sesuai untuk memprediksi kinerja siswa berdasarkan fitur yang tersedia, dengan tingkat kesalahan yang minimal.
+- `SVM` memiliki MSE yang cukup rendah, terutama pada data pelatihan. Ini menunjukkan bahwa model SVM juga memberikan hasil yang baik, meskipun sedikit kurang baik dibandingkan dengan `Random Forest`.
+- `Random Forest` memiliki MSE yang paling rendah baik pada data pelatihan (train) dan sedikit lebih baik pengujian (test) dibanding `KNN`. Ini menunjukkan bahwa model `Random Forest` paling akurat dalam memprediksi Performance Index. 
+- `KNN` memiliki MSE yang paling tinggi pada kedua set data (pelatihan dan pengujian), yang menunjukkan bahwa model ini tidak seakurat `SVM` dan `Random Forest` dalam memprediksi Performance Index.
+
+Kesimpulannya insight: `Random Forest` adalah model terbaik berdasarkan MSE data training dan secara data testing pun tidak berbeda jauh dengan yang paling baik `SVM`. `Random Forest` memberikan hasil yang paling akurat dalam memprediksi `Performance Index` pada data ini, dengan MSE yang sudah rendah pada data pelatihan dan pengujian.
+
+## Kesimpulan dengan Business Understanding
+
+### Problem Statements
+1. Prediksi Kinerja Akademik: Berdasarkan hasil evaluasi, `Random Forest` adalah model yang paling akurat dalam memprediksi `Performance Index` siswa dengan MSE terendah.
+2. Peningkatan Akurasi: Dengan membandingkan `SVM`, `Random Forest`, dan `KNN`, `Random Forest` memberikan hasil terbaik, menjawab kebutuhan untuk meningkatkan akurasi prediksi.
+
+### Goals
+1. Model Prediksi: Algoritma machine learning seperti `Random Forest` berhasil membangun model untuk memprediksi Performance Index siswa dengan fitur yang tersedia.
+2. Evaluasi Model: `Random Forest` terpilih sebagai model terbaik setelah dibandingkan menggunakan MSE.
+
+### Solution statements
+1. Perbandingan Model: Hasil menunjukkan `Random Forest` adalah model terbaik untuk memprediksi Performance Index berdasarkan MSE.
+2. Metrik Evaluasi: Berdasarkan MSE, `Random Forest` dipilih sebagai model terbaik dengan akurasi tertinggi.
+
+Kesimpulan Akhir: `Random Forest` adalah model yang paling akurat untuk memprediksi `Performance Index` siswa, sesuai dengan tujuan dan solusi yang diinginkan dalam project ini.
