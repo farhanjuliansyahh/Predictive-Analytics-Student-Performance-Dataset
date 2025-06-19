@@ -1,7 +1,7 @@
 # Laporan project Machine Learning Terapan 1: Predictive-Analytics-Student-Performance-Dataset | Ahmad Farhan Juliansyah
 
 ## Domain project
-Project ini berfokus pada prediksi `Performance Index` siswa menggunakan data yang mencakup waktu belajar, skor sebelumnya, kegiatan ekstrakurikuler, jam tidur, dan latihan soal. Ini bertujuan untuk memprediksi `Performance Index` siswa berdasarkan beberapa faktor yang dianggap mempengaruhi kinerja akademik, seperti jumlah jam belajar, skor sebelumnya, jam tidur, kegiatan ekstrakurikuler, dan jumlah soal yang dipraktikkan. project ini dapat membantu untuk mengembangkan model prediksi yang dapat membantu sekolah atau lembaga pendidikan dalam meramalkan kinerja akademik siswa dan merencanakan intervensi yang tepat. 
+Project ini berfokus pada prediksi `Performance Index` siswa menggunakan data yang mencakup waktu belajar, skor sebelumnya, kegiatan ekstrakurikuler, jam tidur, dan latihan soal. Ini bertujuan untuk memprediksi `Performance Index` siswa berdasarkan beberapa faktor yang dianggap mempengaruhi kinerja akademik, seperti jumlah jam belajar, skor sebelumnya, jam tidur, kegiatan ekstrakurikuler, dan jumlah soal yang dipraktikkan. project ini dapat membantu untuk mengembangkan model prediksi yang dapat membantu sekolah atau lembaga pendidikan dalam memprediksi kinerja akademik siswa dan merencanakan intervensi yang tepat. 
 Beberapa penelitian terkait yang mendasari pemilihan variabel dalam project ini adalah:
 - [Factors affecting high school students’ academic performance: a case study in Vietnam] https://www.researchgate.net/publication/392576622_Factors_affecting_high_school_students%27_academic_performance_a_case_study_in_Vietnam
 - [Sleep quality, duration, and consistency are associated with better academic performance in college students] https://www.nature.com/articles/s41539-019-0055-z?utm_source=chatgpt.com
@@ -200,6 +200,6 @@ Kesimpulannya insight: `Random Forest` adalah model terbaik berdasarkan MSE data
 
 ### Solution statements
 1. Perbandingan Model: Hasil menunjukkan `Random Forest` adalah model terbaik untuk memprediksi Performance Index berdasarkan MSE.
-2. Metrik Evaluasi: Berdasarkan MSE, `Random Forest` dipilih sebagai model terbaik dengan akurasi tertinggi.
+2. Metrik Evaluasi: Berdasarkan MSE, `Random Forest` dipilih sebagai model terbaik dengan nilai mendekati 0.
 
-Kesimpulan Akhir: `Random Forest` adalah model yang paling akurat untuk memprediksi `Performance Index` siswa, sesuai dengan tujuan dan solusi yang diinginkan dalam project ini.
+Kesimpulan Akhir: `Random Forest` adalah model yang paling akurat untuk memprediksi `Performance Index` siswa, sesuai dengan tujuan dan solusi yang diinginkan dalam project ini karena dapat memprediksi `Performance Index` siswa dengan baik, sehingga dapat digunakan untuk membantu sekolah atau lembaga pendidikan dalam memprediksi kinerja akademik siswa dan merencanakan intervensi yang tepat. 
