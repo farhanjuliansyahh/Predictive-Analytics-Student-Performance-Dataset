@@ -1,7 +1,7 @@
 # Laporan project Machine Learning Terapan 1: Predictive-Analytics-Student-Performance-Dataset | Ahmad Farhan Juliansyah
 
 ## Domain project
-project ini berfokus pada prediksi `Performance Index` siswa menggunakan data yang mencakup waktu belajar, skor sebelumnya, kegiatan ekstrakurikuler, jam tidur, dan latihan soal. Ini bertujuan untuk memprediksi `Performance Index` siswa berdasarkan beberapa faktor yang dianggap mempengaruhi kinerja akademik, seperti jumlah jam belajar, skor sebelumnya, jam tidur, kegiatan ekstrakurikuler, dan jumlah soal yang dipraktikkan. project ini dapat membantu untuk mengembangkan model prediksi yang dapat membantu sekolah atau lembaga pendidikan dalam meramalkan kinerja akademik siswa dan merencanakan intervensi yang tepat. 
+Project ini berfokus pada prediksi `Performance Index` siswa menggunakan data yang mencakup waktu belajar, skor sebelumnya, kegiatan ekstrakurikuler, jam tidur, dan latihan soal. Ini bertujuan untuk memprediksi `Performance Index` siswa berdasarkan beberapa faktor yang dianggap mempengaruhi kinerja akademik, seperti jumlah jam belajar, skor sebelumnya, jam tidur, kegiatan ekstrakurikuler, dan jumlah soal yang dipraktikkan. project ini dapat membantu untuk mengembangkan model prediksi yang dapat membantu sekolah atau lembaga pendidikan dalam meramalkan kinerja akademik siswa dan merencanakan intervensi yang tepat. 
 Beberapa penelitian terkait yang mendasari pemilihan variabel dalam project ini adalah:
 - [Factors affecting high school students’ academic performance: a case study in Vietnam] https://www.researchgate.net/publication/392576622_Factors_affecting_high_school_students%27_academic_performance_a_case_study_in_Vietnam
 - [Sleep quality, duration, and consistency are associated with better academic performance in college students] https://www.nature.com/articles/s41539-019-0055-z?utm_source=chatgpt.com
@@ -39,7 +39,7 @@ Untuk mencapai tujuan di atas, solusi yang diajukan adalah:
 - `Performance Index`: Nilai kinerja akademik yang ingin diprediksi dan fitur ini yang dijadikan data targetnya.
 
 ### **Exploratory Data Analysis**:
-1. Terdapat kolom kategorikal yang perlu diproses melalui encoding. Kolom kategorikal dalam dataset ini adalah Extracurricular Activities. Kolom ini menyimpan data berupa kategori (apakah siswa mengikuti kegiatan ekstrakurikuler atau tidak) dan perlu diubah menjadi bentuk numerik agar bisa digunakan dalam pemodelan machine learning.
+1. Terdapat kolom kategorikal yang perlu diproses melalui encoding. Kolom kategorikal dalam dataset ini adalah `Extracurricular Activities`. Kolom ini menyimpan data berupa kategori (apakah siswa mengikuti kegiatan ekstrakurikuler atau tidak) dan perlu diubah menjadi bentuk numerik agar bisa digunakan dalam pemodelan machine learning.
 2. Korelasi antara fitur-fitur numerik menunjukkan beberapa hubungan yang signifikan.
 3. Fitur target `Performance Index` menunjukkan variasi yang cukup baik yang dapat digunakan dalam model prediksi.
 
