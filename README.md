@@ -124,13 +124,10 @@ models.loc['train_mse', 'SVM'] = mean_squared_error(y_true=y_train, y_pred=svm.p
 - C: 1.0
 - Epsilon: 0.1
 
-**Kelebihan**:
-- Dapat menangani hubungan non-linear antara fitur dan target dengan baik.
-- Cocok untuk dataset yang lebih kecil atau medium.
-
-**Kekurangan**:
-- Memerlukan tuning hyperparameter yang cukup banyak.
-- Dapat lambat pada dataset yang besar.
+| Model | Kelebihan                                                                | Kekurangan                                          |
+|-------|--------------------------------------------------------------------------|-----------------------------------------------------|
+| SVM   | Dapat menangani hubungan non-linear antara fitur dan target dengan baik. | Memerlukan tuning hyperparameter yang cukup banyak. |
+| SVM   | Cocok untuk dataset yang lebih kecil atau medium.                        | Dapat lambat pada dataset yang besar.               |
 
 ### Random Forest Regressor
 Random Forest adalah algoritma ensemble yang membangun sejumlah pohon keputusan dan menggabungkan hasilnya untuk meningkatkan akurasi prediksi.
@@ -148,13 +145,10 @@ models.loc['train_mse', 'RandomForest'] = mean_squared_error(y_true=y_train, y_p
 - random_state: 55
 - n_jobs: 1
 
-**Kelebihan**:
-- Dapat menangani dataset besar dan sangat efektif dalam menangani outliers.
-- Dapat memberikan estimasi pentingnya fitur dalam model.
-
-**Kekurangan**:
-- Lebih lambat dalam prediksi dibandingkan model linear.
-- Rentan terhadap overfitting jika tidak diatur dengan baik.
+| Model         | Kelebihan                                                                  | Kekurangan                                                 |
+|---------------|----------------------------------------------------------------------------|------------------------------------------------------------|
+| Random Forest | Dapat menangani dataset besar dan sangat efektif dalam menangani outliers. | Lebih lambat dalam prediksi dibandingkan model linear.     |
+| Random Forest | Dapat memberikan estimasi pentingnya fitur dalam model.                    | Rentan terhadap overfitting jika tidak diatur dengan baik. |
 
 ### K-Nearest Neighbors
 KNN adalah algoritma yang mengklasifikasikan data berdasarkan kedekatannya dengan data lainnya. Pada regresi, KNN memprediksi nilai target berdasarkan rata-rata nilai target dari tetangga terdekat.
@@ -169,19 +163,10 @@ models.loc['train_mse', 'KNN'] = mean_squared_error(y_true=y_train, y_pred=knn.p
 **Parameter**:
 - n_neighbors: 20
 
-| Model             | Kelebihan  | Kekurangan   |
-|-------------------|------------|------------|
-| KNN              | Sangat sederhana dan mudah dipahami.   | Sensitif terhadap data outlier.   |
-| KNN     | Tidak memerlukan asumsi tentang distribusi data.    | Performa buruk pada dataset yang sangat besar.   |
-
-
-**Kelebihan**:
-- Sangat sederhana dan mudah dipahami.
-- Tidak memerlukan asumsi tentang distribusi data.
-
-**Kekurangan**:
-- Sensitif terhadap data outlier.
-- Performa buruk pada dataset yang sangat besar.
+| Model | Kelebihan                                        | Kekurangan                                     |
+|-------|--------------------------------------------------|------------------------------------------------|
+| KNN   | Sangat sederhana dan mudah dipahami.             | Sensitif terhadap data outlier.                |
+| KNN   | Tidak memerlukan asumsi tentang distribusi data. | Performa buruk pada dataset yang sangat besar. |
 
 ### **Pemilihan Model**
 Dari tiga model yang dievaluasi, **Random Forest** menunjukkan hasil terbaik dengan MSE yang lebih rendah, baik pada data pelatihan maupun data uji. Model ini lebih stabil dan akurat dibandingkan dengan SVM dan KNN.
